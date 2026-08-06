@@ -1,3 +1,4 @@
+# How Transformers Think And Store Facts
 
 A standard Transformer MLP layer (ignoring bias terms for simplicity) takes an input vector $\mathbf{x}$ from the residual stream and performs two linear transformations with a non-linear activation $\sigma$ (like GELU):
 
@@ -22,7 +23,7 @@ We can think of mutually exclusive facts such as *"x is a fruit"* and *"x is a v
 
 Because high-dimensional spaces allow for a massive number of nearly-orthogonal vectors, a Transformer can have thousands of distinct concept directions in one lower-dimensional latent space without them interfering with one another.
 
->[!EXAMPLE] Example in 1024 dimensions
+>[!NOTE] Example in 1024 dimensions
 >If you require **perfect orthogonality, exactly 1,024 vectors** can fit. However, if you allow near-orthagonality ($81.4°$ to $98.6°$), you can fit over 100'000 of those vector in the same latent space. This happens because high-dimensional space expands exponentially.
 >$\rightarrow$ This allows LLMs to store millions of concepts.
 
@@ -59,6 +60,6 @@ The synergy between the dynamic context aggregation in attention and information
 
 The [Universal approximation theorem](https://en.wikipedia.org/wiki/Universal_approximation_theorem) applies to feedforward networks with a single hidden layer with non-polynomial activation functions. It states that Neural Networks with a certain structure can theoretically approximate any continuous function to arbitrary accuracy.
 
->[!INFO]
+>[!CAUTION]
 >This only guarantees that such a network **exists**. It does not provide a method for finding the networks parameters and they don't specify how large the network must be.
 
